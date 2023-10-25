@@ -1,0 +1,387 @@
+﻿
+@model IEnumerable<FastKDS.Models.Orders>
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/dist/css/adminlte.min.css" rel="stylesheet" />
+    <link href="~/dist/css/bs-stepper.min.css" rel="stylesheet" />
+    <link href="~/plugins/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <title>KDS 廚房控菜系統</title>
+    <style>
+        /* Gif圖片 */
+        .loading {
+            background-image: url('../../dist/img/loading.gif');
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 200px;
+            left: 0;
+            right: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="hold-transition layout-top-nav">
+    <div class="wrapper">
+
+        <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+            <div class="container">
+                <a href="../../index3.html" class="navbar-brand">
+                    <img src="../../dist/img/fast.png" alt="Fast Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                    <span class="brand-text font-weight-light"><b>南農中心KDS廚房控菜系統</b></span>
+                </a>
+                <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+
+
+        <div class="content-wrapper">
+            <div class="content-header">
+                <div class="container">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0"></h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item active">PAGE1</li>
+                                <li class="breadcrumb-item"><a href="#">PAGE2</a></li>
+                                <li class="breadcrumb-item"><a href="#">PAGE3</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title m-0">@DateTime.Now.ToString("yyyy年MM月dd日") 廚房訂單</h5>
+                                </div>
+                                <div class="card-body">
+
+                                    <div class="card">
+                                        <div class="card-header p-2">
+                                            <ul class="nav nav-pills">
+                                                <li class="nav-item"><a class="nav-link active" href="#all" data-toggle="tab"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">全部訂單</font></font></a></li>
+                                                <li class="nav-item"><a class="nav-link" href="#new" data-toggle="tab"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">新訂單</font></font></a></li>
+                                                <li class="nav-item"><a class="nav-link" href="#active" data-toggle="tab"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">製作中</font></font></a></li>
+                                                <li class="nav-item"><a class="nav-link" href="#picker" data-toggle="tab"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">待取餐</font></font></a></li>
+                                                <li class="nav-item"><a class="nav-link" href="#final" data-toggle="tab"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">已完成</font></font></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" id="all">
+                                                    <table id="orderTable" class="table table-bordered table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>狀態</th>
+                                                                <th>編號</th>
+                                                                <th>時間</th>
+                                                                <th>明細</th>
+                                                                <th>備註</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach (var order in Model)
+                                                            {
+                                                                <tr>
+                                                                    <td>
+                                                                        <div class="bs-stepper linear">
+                                                                            <div class="bs-stepper-header" role="tablist">
+                                                                                @if (order.State == "待製作")
+                                                                                {
+                                                                                    <div class="step active" data-target="#logins-part">
+                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger" aria-selected="true">
+                                                                                            <span class="bs-stepper-circle">1</span>
+                                                                                            <span class="bs-stepper-label">待製作</span>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="line"></div>
+                                                                                    <div class="step" data-target="#information-part">
+                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
+                                                                                            <span class="bs-stepper-circle">2</span>
+                                                                                            <span class="bs-stepper-label">製作中</span>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="line"></div>
+                                                                                    <div class="step" data-target="#information-part">
+                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
+                                                                                            <span class="bs-stepper-circle">3</span>
+                                                                                            <span class="bs-stepper-label">待取餐</span>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="line"></div>
+                                                                                    <div class="step" data-target="#information-part">
+                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
+                                                                                            <span class="bs-stepper-circle">4</span>
+                                                                                            <span class="bs-stepper-label">已完成</span>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                }
+                                                                                else if (order.State == "製作中")
+                                                                                {
+                                                                                    <div class="step" data-target="#logins-part">
+                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger" aria-selected="false" disabled="disabled">
+                                                                                            <span class="bs-stepper-circle">1</span>
+                                                                                            <span class="bs-stepper-label">等待製作</span>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="line"></div>
+                                                                                    <div class="step active" data-target="#information-part">
+                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="true">
+                                                                                            <span class="bs-stepper-circle">2</span>
+                                                                                            <span class="bs-stepper-label">製作中</span>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="line"></div>
+                                                                                    <div class="step" data-target="#information-part">
+                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
+                                                                                            <span class="bs-stepper-circle">3</span>
+                                                                                            <span class="bs-stepper-label">待取餐</span>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="line"></div>
+                                                                                    <div class="step" data-target="#information-part">
+                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
+                                                                                            <span class="bs-stepper-circle">3</span>
+                                                                                            <span class="bs-stepper-label">已完成</span>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                }
+                                                                                else if (order.State == "待取餐")
+                                                                                {
+                                                                                    <div class="step" data-target="#logins-part">
+                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger" aria-selected="false" disabled="disabled">
+                                                                                            <span class="bs-stepper-circle">1</span>
+                                                                                            <span class="bs-stepper-label">等待製作</span>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="line"></div>
+                                                                                    <div class="step" data-target="#information-part">
+                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
+                                                                                            <span class="bs-stepper-circle">3</span>
+                                                                                            <span class="bs-stepper-label">待取餐</span>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="line"></div>
+                                                                                    <div class="step active" data-target="#information-part">
+                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="true">
+                                                                                            <span class="bs-stepper-circle">3</span>
+                                                                                            <span class="bs-stepper-label">待取餐</span>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="line"></div>
+                                                                                    <div class="step" data-target="#information-part">
+                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
+                                                                                            <span class="bs-stepper-circle">3</span>
+                                                                                            <span class="bs-stepper-label">已完成</span>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    <div class="step" data-target="#logins-part">
+                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger" aria-selected="false" disabled="disabled">
+                                                                                            <span class="bs-stepper-circle">1</span>
+                                                                                            <span class="bs-stepper-label">等待製作</span>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="line"></div>
+                                                                                    <div class="step" data-target="#information-part">
+                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
+                                                                                            <span class="bs-stepper-circle">2</span>
+                                                                                            <span class="bs-stepper-label">製作中</span>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="line"></div>
+                                                                                    <div class="step" data-target="#information-part">
+                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
+                                                                                            <span class="bs-stepper-circle">3</span>
+                                                                                            <span class="bs-stepper-label">待取餐</span>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="line"></div>
+                                                                                    <div class="step active" data-target="#information-part">
+                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="true">
+                                                                                            <span class="bs-stepper-circle">3</span>
+                                                                                            <span class="bs-stepper-label">已完成</span>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                }
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>@order.OrderID</td>
+                                                                    <td>@order.DateTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                                                                    <td>
+                                                                        <ul>
+                                                                            @foreach (var item in order.OrderDetail)
+                                                                            {
+                                                                                <li>@item.Name X @item.Quantity (@item.Note)</li>
+                                                                            }
+                                                                        </ul>
+                                                                    </td>
+                                                                    <td>@order.Note</td>
+                                                                    <td>
+                                                                        @if (order.State != "已完成")
+                                                                        {
+                                                                            <button class="btn btn-danger" onclick="updateOrderStatus(@order.OrderID, '@order.State')">下一步</button>
+                                                                        }
+                                                                    </td>
+                                                                </tr>
+                                                            }
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                                <div class="tab-pane" id="new">
+                                                    <h1>新訂單</h1>
+                                                </div>
+
+                                                <div class="tab-pane" id="active">
+                                                    <h1>製作中</h1>
+                                                </div>
+
+                                                <div class="tab-pane" id="picker">
+                                                    <h1>待取餐</h1>
+                                                </div>
+
+                                                <div class="tab-pane" id="final">
+                                                    <h1>已完成</h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="loading" style="align-content:center"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @*<input type="text" id="message" />
+                                <input type="button" id="sendmessage" value="Send" />
+                                <input type="hidden" id="displayname" />*@
+
+                            <button class="btn btn-danger" onclick="CreateNewOrder()">送出</button>
+                            <ul id="discussion">
+                            </ul>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <aside class="control-sidebar control-sidebar-dark">
+        </aside>
+
+        <footer class="main-footer">
+            <strong><a href="https://www.fast.org.tw/">本系統由財團法人農漁會南區資訊中心設計維護</a></strong>
+        </footer>
+    </div>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/dist/js/adminlte.min.js"></script>
+    <script src="~/dist/js/bs-stepper.min.js"></script>
+    <script src="~/dist/js/demo.js"></script>
+    <!-- jQuery -->
+    <script src="~/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <!--<script src="~/dist/js/demo.js"></script>-->
+    <script src="~/Scripts/jquery.signalR-2.4.3.min.js"></script>
+    <!--Reference the autogenerated SignalR hub script. -->
+    <script src="~/signalr/hubs"></script>
+    <!--sweetalert2 script-->
+    <script src="~/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+
+    <script>
+       function updateOrderStatus(orderId, currentState) {
+                $.ajax({
+                    url: '@Url.Action("UpdateOrderStatus", "Home")',
+                    type: 'POST',
+                    data: { orderId: orderId, currentState: currentState },
+                    success: function () {
+                        // 更新視圖以反映新的訂單狀態
+                        location.reload();
+                    },
+                    error: function () {
+                        alert('無法更新訂單狀態。');
+                    }
+                });
+        }
+
+        function CreateNewOrder() {
+                $.ajax({
+                    url: '@Url.Action("CreateNewOrder", "Home")',
+                    type: 'POST',
+                    data: {},
+                    success: function () {
+                        // 更新視圖以反映新的訂單狀態
+                        //location.reload();
+                    },
+                    error: function () {
+                        alert('無法更新訂單狀態。');
+                    }
+                });
+        }
+
+        $(function () {
+            //引用為該Hub自動生成的代理
+            var chat = $.connection.ChatHub;
+            //創建一個用於 Hub 回呼以顯示消息的函數
+            chat.client.addNewMessageToPage = function (name, message) {
+                //在頁面上添加消息
+                $('#discussion').append('<li><strong>' + htmlEncode(name)
+                    + '</strong>: ' + htmlEncode(message) + '</li>');
+
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'success',
+                    title: name,
+                    html: message.replace(/\n/g, "<br>"),
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            };
+            //獲取用戶名並存儲以便添加到消息前面
+            //$('#displayname').val(prompt('Enter your name:', ''));
+            //將焦點初始化設置在消息輸入框上
+            //$('#message').focus();
+            //啟動連接
+            $.connection.hub.start().done(function () {
+                //$('#sendmessage').click(function () {
+                //    //調用 Hub 上的 Send 方法
+                //    chat.server.send($('#displayname').val(), $('#message').val());
+                //    //清空文本框並為下一條評論重置焦點
+                //    $('#message').val('').focus();
+                //});
+            });
+        });
+        //這個可選的函數用於對頁面中的消息進行 HTML 編碼
+        function htmlEncode(value) {
+            var encodedValue = $('<div />').text(value).html();
+            return encodedValue;
+        }
+    </script>
+
+</body>
+</html>

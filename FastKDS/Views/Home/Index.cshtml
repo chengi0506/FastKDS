@@ -72,6 +72,13 @@
                                 </div>
                                 <div class="card-body">
 
+                                    <div id="MsgDiv" class="callout callout-danger" style="display: none;">
+                                        <i class="fas fa-bullhorn"></i>
+                                        <p id="Msg">
+                                            訂單通知
+                                        </p>
+                                    </div>
+
                                     <div class="card">
                                         <div class="card-header p-2">
                                             <ul class="nav nav-pills">
@@ -88,12 +95,11 @@
                                                     <table id="orderTable" class="table table-bordered table-hover">
                                                         <thead>
                                                             <tr>
-                                                                <th>狀態</th>
-                                                                <th>編號</th>
-                                                                <th>時間</th>
-                                                                <th>明細</th>
-                                                                <th>備註</th>
-                                                                <th></th>
+                                                                <th style="width: 55%;">狀態</th>
+                                                                <th style="width: 10%;">編號</th>
+                                                                <th style="width: 20%;">明細</th>
+                                                                <th style="width: 5%;">備註</th>
+                                                                <th style="width: 10%;"></th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -109,6 +115,7 @@
                                                                                         <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger" aria-selected="true">
                                                                                             <span class="bs-stepper-circle">1</span>
                                                                                             <span class="bs-stepper-label">待製作</span>
+                                                                                            <span class="bs-stepper-label">@order.DateTime.ToString("HH:mm:ss")</span>
                                                                                         </button>
                                                                                     </div>
                                                                                     <div class="line"></div>
@@ -116,6 +123,16 @@
                                                                                         <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
                                                                                             <span class="bs-stepper-circle">2</span>
                                                                                             <span class="bs-stepper-label">製作中</span>
+                                                                                            <span class="bs-stepper-label">
+                                                                                                @if (order.CookTime != null)
+                                                                                                {
+                                                                                                    @order.CookTime.Value.ToString("HH:mm:ss")
+                                                                                                }
+                                                                                                else
+                                                                                                {
+                                                                                                    @:N/A
+                                                                                                }
+                                                                                            </span>
                                                                                         </button>
                                                                                     </div>
                                                                                     <div class="line"></div>
@@ -123,6 +140,16 @@
                                                                                         <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
                                                                                             <span class="bs-stepper-circle">3</span>
                                                                                             <span class="bs-stepper-label">待取餐</span>
+                                                                                            <span class="bs-stepper-label">
+                                                                                                @if (order.MakeTime != null)
+                                                                                                {
+                                                                                                    @order.MakeTime.Value.ToString("HH:mm:ss")
+                                                                                                }
+                                                                                                else
+                                                                                                {
+                                                                                                    @:N/A
+                                                                                                }
+                                                                                            </span>
                                                                                         </button>
                                                                                     </div>
                                                                                     <div class="line"></div>
@@ -130,66 +157,16 @@
                                                                                         <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
                                                                                             <span class="bs-stepper-circle">4</span>
                                                                                             <span class="bs-stepper-label">已完成</span>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                }
-                                                                                else if (order.State == "製作中")
-                                                                                {
-                                                                                    <div class="step" data-target="#logins-part">
-                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger" aria-selected="false" disabled="disabled">
-                                                                                            <span class="bs-stepper-circle">1</span>
-                                                                                            <span class="bs-stepper-label">等待製作</span>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                    <div class="line"></div>
-                                                                                    <div class="step active" data-target="#information-part">
-                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="true">
-                                                                                            <span class="bs-stepper-circle">2</span>
-                                                                                            <span class="bs-stepper-label">製作中</span>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                    <div class="line"></div>
-                                                                                    <div class="step" data-target="#information-part">
-                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
-                                                                                            <span class="bs-stepper-circle">3</span>
-                                                                                            <span class="bs-stepper-label">待取餐</span>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                    <div class="line"></div>
-                                                                                    <div class="step" data-target="#information-part">
-                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
-                                                                                            <span class="bs-stepper-circle">3</span>
-                                                                                            <span class="bs-stepper-label">已完成</span>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                }
-                                                                                else if (order.State == "待取餐")
-                                                                                {
-                                                                                    <div class="step" data-target="#logins-part">
-                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger" aria-selected="false" disabled="disabled">
-                                                                                            <span class="bs-stepper-circle">1</span>
-                                                                                            <span class="bs-stepper-label">等待製作</span>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                    <div class="line"></div>
-                                                                                    <div class="step" data-target="#information-part">
-                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
-                                                                                            <span class="bs-stepper-circle">3</span>
-                                                                                            <span class="bs-stepper-label">待取餐</span>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                    <div class="line"></div>
-                                                                                    <div class="step active" data-target="#information-part">
-                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="true">
-                                                                                            <span class="bs-stepper-circle">3</span>
-                                                                                            <span class="bs-stepper-label">待取餐</span>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                    <div class="line"></div>
-                                                                                    <div class="step" data-target="#information-part">
-                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
-                                                                                            <span class="bs-stepper-circle">3</span>
-                                                                                            <span class="bs-stepper-label">已完成</span>
+                                                                                            <span class="bs-stepper-label">
+                                                                                                @if (order.TakeTime != null)
+                                                                                                {
+                                                                                                    @order.TakeTime.Value.ToString("HH:mm:ss")
+                                                                                                }
+                                                                                                else
+                                                                                                {
+                                                                                                    @:N/A
+                                                                                                }
+                                                                                            </span>
                                                                                         </button>
                                                                                     </div>
                                                                                 }
@@ -199,6 +176,7 @@
                                                                                         <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger" aria-selected="false" disabled="disabled">
                                                                                             <span class="bs-stepper-circle">1</span>
                                                                                             <span class="bs-stepper-label">等待製作</span>
+                                                                                            <span class="bs-stepper-label">@order.DateTime.ToString("HH:mm:ss")</span>
                                                                                         </button>
                                                                                     </div>
                                                                                     <div class="line"></div>
@@ -206,6 +184,16 @@
                                                                                         <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
                                                                                             <span class="bs-stepper-circle">2</span>
                                                                                             <span class="bs-stepper-label">製作中</span>
+                                                                                            <span class="bs-stepper-label">
+                                                                                                @if (order.CookTime != null)
+                                                                                                {
+                                                                                                    @order.CookTime.Value.ToString("HH:mm:ss")
+                                                                                                }
+                                                                                                else
+                                                                                                {
+                                                                                                    @:N/A
+                                                                                                }
+                                                                                            </span>
                                                                                         </button>
                                                                                     </div>
                                                                                     <div class="line"></div>
@@ -213,13 +201,33 @@
                                                                                         <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
                                                                                             <span class="bs-stepper-circle">3</span>
                                                                                             <span class="bs-stepper-label">待取餐</span>
+                                                                                            <span class="bs-stepper-label">
+                                                                                                @if (order.MakeTime != null)
+                                                                                                {
+                                                                                                    @order.MakeTime.Value.ToString("HH:mm:ss")
+                                                                                                }
+                                                                                                else
+                                                                                                {
+                                                                                                    @:N/A
+                                                                                                }
+                                                                                            </span>
                                                                                         </button>
                                                                                     </div>
                                                                                     <div class="line"></div>
                                                                                     <div class="step active" data-target="#information-part">
                                                                                         <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="true">
-                                                                                            <span class="bs-stepper-circle">3</span>
+                                                                                            <span class="bs-stepper-circle">4</span>
                                                                                             <span class="bs-stepper-label">已完成</span>
+                                                                                            <span class="bs-stepper-label">
+                                                                                                @if (order.TakeTime != null)
+                                                                                                {
+                                                                                                    @order.TakeTime.Value.ToString("HH:mm:ss")
+                                                                                                }
+                                                                                                else
+                                                                                                {
+                                                                                                    @:N/A
+                                                                                                }
+                                                                                            </span>
                                                                                         </button>
                                                                                     </div>
                                                                                 }
@@ -227,7 +235,6 @@
                                                                         </div>
                                                                     </td>
                                                                     <td>@order.OrderID</td>
-                                                                    <td>@order.DateTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
                                                                     <td>
                                                                         <ul>
                                                                             @foreach (var item in order.OrderDetail)
@@ -271,15 +278,7 @@
                                 </div>
                             </div>
 
-                            @*<input type="text" id="message" />
-                                <input type="button" id="sendmessage" value="Send" />
-                                <input type="hidden" id="displayname" />*@
-
                             <button class="btn btn-danger" onclick="CreateNewOrder()">送出</button>
-                            <ul id="discussion">
-                            </ul>
-
-
                         </div>
                     </div>
                 </div>
@@ -330,12 +329,13 @@
 
         function CreateNewOrder() {
                 $.ajax({
-                    url: '@Url.Action("CreateNewOrder", "Home")',
-                    type: 'POST',
-                    data: {},
-                    success: function () {
+                    url: "/api/Order/GetNewOrder",
+                    type: 'GET',
+                    success: function (data) {
                         // 更新視圖以反映新的訂單狀態
                         //location.reload();
+                        console.log(data);
+                        appendOrdersToTable(data);
                     },
                     error: function () {
                         alert('無法更新訂單狀態。');
@@ -343,14 +343,81 @@
                 });
         }
 
+        function appendOrdersToTable(orders) {
+            var tbody = $("#orderTable tbody");
+            tbody.empty();
+
+            console.log(orders.OrderID);
+
+            $.each(orders, function (index, order) {
+                var row = "<tr>" +
+                    "<td>" +
+                    "<div class='bs-stepper linear'>" +
+                    "<div class='bs-stepper-header' role='tablist'>" +
+                    "<div class='step active' data-target='#logins-part'>" +
+                    "<button type='button' class='step-trigger' role='tab' aria-controls='logins-part' id='logins-part-trigger' aria-selected='true'>" +
+                    "<span class='bs-stepper-circle'>1</span>" +
+                    "<span class='bs-stepper-label'>" + order.Status + "</span>" +
+                    "<span class='bs-stepper-label'>" + order.TimeStamp + "</span>" +
+                    "</button>" +
+                    "</div>" +
+                    "<div class='line'></div>";
+
+                // 根據不同狀態和時間戳添加其他條件
+                if (order.Status == "製作中") {
+                    row += "<div class='step' data-target='#information-part'>" +
+                        "<button type='button' class='step-trigger' role='tab' aria-controls='information-part' id='information-part-trigger' aria-selected='false' disabled='disabled'>" +
+                        "<span class='bs-stepper-circle'>2</span>" +
+                        "<span class='bs-stepper-label'>製作中</span>" +
+                        "<span class='bs-stepper-label'>" + order.CookTime + "</span>" +
+                        "</button>" +
+                        "</div>" +
+                        "<div class='line'></div>";
+                }
+
+                // 重複此過程以處理其他狀態
+
+                row += "</div></div></td>" +
+                    "<td>" + order.OrderID + "</td>" +
+                    "<td>" +
+                    "<ul>";
+
+                $.each(order.OrderDetail, function (index, item) {
+                    row += "<li>" + item.Name + " x " + item.Quantity + " (" + item.Note + ")</li>";
+                });
+
+                row += "</ul></td>" +
+                    "<td>" + order.Note + "</td>" +
+                    "<td>";
+
+                if (order.Status != "已完成") {
+                    row += "<button class='btn btn-danger' onclick='updateOrderStatus(" + order.OrderID + ", \"" + order.Status + "\")'>下一步</button>";
+                }
+
+                row += "</td></tr>";
+
+                tbody.append(row);
+            }
+        };
+
         $(function () {
             //引用為該Hub自動生成的代理
             var chat = $.connection.ChatHub;
             //創建一個用於 Hub 回呼以顯示消息的函數
             chat.client.addNewMessageToPage = function (name, message) {
-                //在頁面上添加消息
-                $('#discussion').append('<li><strong>' + htmlEncode(name)
-                    + '</strong>: ' + htmlEncode(message) + '</li>');
+                // 顯示訊息
+                $("#MsgDiv").show();
+
+                // 清除文本内容
+                $("#Msg").text("");
+
+                var parts = message.split('-----------------------');
+                if (parts.length > 1) {
+                    var extractedText = parts[0].trim();
+                    console.log(extractedText);
+                    //在頁面上添加消息
+                    $('#Msg').append('<strong>' + extractedText + '</strong>');
+                }
 
                 Swal.fire({
                     toast: true,

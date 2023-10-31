@@ -2,6 +2,7 @@
 using FastKDS.Hubs;
 using FastKDS.Models;
 using Microsoft.AspNet.SignalR;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,12 +57,14 @@ namespace FastKDS.Controllers
                     string message = $"訂單時間: {latestOrder.DateTime.ToString("HH:mm:ss")}{Environment.NewLine}" +
                                      $"訂單編號: {latestOrder.OrderID}{Environment.NewLine}" +
                                      $"訂單備註: {latestOrder.Note}{Environment.NewLine}" +
-                                     "訂單明細:";
+                                     $"-----------------------{Environment.NewLine}";
 
                     var latestOrderDetail = context.OrderDetails.Where(o => o.OrderID == latestOrder.OrderID).ToList();
+                    int Pno = 1;
                     foreach (var orderDetail in latestOrderDetail)
                     {
-                        message += $"{Environment.NewLine}{orderDetail.Name} X {orderDetail.Quantity} ({orderDetail.Note})";
+                        message += $"{Pno}.{orderDetail.Name} X {orderDetail.Quantity} ({orderDetail.Note}){Environment.NewLine}";
+                        Pno++;
                     }
 
                     // 向客户端廣播通知
@@ -85,14 +88,17 @@ namespace FastKDS.Controllers
                 if (currentState == "待製作")
                 {
                     order.State = "製作中";
+                    order.CookTime = DateTime.Now;
                 }
                 else if (currentState == "製作中")
                 {
                     order.State = "待取餐";
+                    order.MakeTime = DateTime.Now;
                 }
                 else if (currentState == "待取餐")
                 {
                     order.State = "已完成";
+                    order.TakeTime = DateTime.Now;
                 }
 
                 context.SaveChanges();

@@ -87,8 +87,6 @@ E:\WorkSpace\FastKDS\FastKDS\bin\zh-Hant\System.Web.WebPages.Razor.resources.dll
 E:\WorkSpace\FastKDS\FastKDS\obj\Debug\FastKDS.csproj.CopyComplete
 E:\WorkSpace\FastKDS\FastKDS\obj\Debug\FastKDS.dll
 E:\WorkSpace\FastKDS\FastKDS\obj\Debug\FastKDS.pdb
-E:\WorkSpace\FastKDS\FastKDS\obj\Debug\FastKDS.Migrations.FastKDS.resources
-E:\WorkSpace\FastKDS\FastKDS\obj\Debug\FastKDS.csproj.GenerateResource.cache
 E:\WorkSpace\FastKDS\FastKDS\bin\Microsoft.AspNet.SignalR.Core.dll
 E:\WorkSpace\FastKDS\FastKDS\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
 E:\WorkSpace\FastKDS\FastKDS\bin\Microsoft.Owin.dll
@@ -107,4 +105,15 @@ E:\WorkSpace\FastKDS\FastKDS\bin\zh-Hant\Microsoft.AspNet.SignalR.SystemWeb.reso
 E:\WorkSpace\FastKDS\FastKDS\bin\zh-Hant\Microsoft.Owin.resources.dll
 E:\WorkSpace\FastKDS\FastKDS\bin\zh-Hant\Microsoft.Owin.Host.SystemWeb.resources.dll
 E:\WorkSpace\FastKDS\FastKDS\bin\zh-Hant\Microsoft.Owin.Security.resources.dll
+E:\WorkSpace\FastKDS\FastKDS\obj\Debug\FastKDS.Migrations.InitialCreate.resources
+E:\WorkSpace\FastKDS\FastKDS\obj\Debug\FastKDS.csproj.GenerateResource.cache
+E:\WorkSpace\FastKDS\FastKDS\bin\System.Net.Http.Formatting.dll
+E:\WorkSpace\FastKDS\FastKDS\bin\System.Web.Http.dll
+E:\WorkSpace\FastKDS\FastKDS\bin\System.Web.Http.WebHost.dll
+E:\WorkSpace\FastKDS\FastKDS\bin\System.Net.Http.Formatting.xml
+E:\WorkSpace\FastKDS\FastKDS\bin\System.Web.Http.xml
+E:\WorkSpace\FastKDS\FastKDS\bin\System.Web.Http.WebHost.xml
+E:\WorkSpace\FastKDS\FastKDS\bin\zh-Hant\System.Net.Http.Formatting.resources.dll
+E:\WorkSpace\FastKDS\FastKDS\bin\zh-Hant\System.Web.Http.resources.dll
+E:\WorkSpace\FastKDS\FastKDS\bin\zh-Hant\System.Web.Http.WebHost.resources.dll
 E:\WorkSpace\FastKDS\FastKDS\obj\Debug\FastKDS.csproj.AssemblyReference.cache

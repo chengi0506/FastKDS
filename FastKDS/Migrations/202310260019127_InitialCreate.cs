@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class FastKDS : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
@@ -11,15 +11,15 @@
                 "dbo.OrderDetails",
                 c => new
                     {
-                        OrderID = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false, identity: true),
+                        OrderID = c.Int(nullable: false),
                         Name = c.String(),
                         Quantity = c.Int(nullable: false),
                         Note = c.String(),
-                        Orders_OrderID = c.Int(),
                     })
-                .PrimaryKey(t => t.OrderID)
-                .ForeignKey("dbo.Orders", t => t.Orders_OrderID)
-                .Index(t => t.Orders_OrderID);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Orders", t => t.OrderID, cascadeDelete: true)
+                .Index(t => t.OrderID);
             
             CreateTable(
                 "dbo.Orders",
@@ -29,6 +29,9 @@
                         DateTime = c.DateTime(nullable: false),
                         Note = c.String(maxLength: 50),
                         State = c.String(maxLength: 10),
+                        CookTime = c.DateTime(),
+                        MakeTime = c.DateTime(),
+                        TakeTime = c.DateTime(),
                     })
                 .PrimaryKey(t => t.OrderID);
             
@@ -36,8 +39,8 @@
         
         public override void Down()
         {
-            DropForeignKey("dbo.OrderDetails", "Orders_OrderID", "dbo.Orders");
-            DropIndex("dbo.OrderDetails", new[] { "Orders_OrderID" });
+            DropForeignKey("dbo.OrderDetails", "OrderID", "dbo.Orders");
+            DropIndex("dbo.OrderDetails", new[] { "OrderID" });
             DropTable("dbo.Orders");
             DropTable("dbo.OrderDetails");
         }

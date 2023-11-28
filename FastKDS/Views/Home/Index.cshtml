@@ -3,6 +3,8 @@
 
 @{
     Layout = null;
+    string DeveloperNname = "財團法人農漁會南區資訊中心";
+    string SystemName = "KDS廚房控菜系統";
 }
 
 
@@ -14,7 +16,7 @@
     <link href="~/dist/css/adminlte.min.css" rel="stylesheet" />
     <link href="~/dist/css/bs-stepper.min.css" rel="stylesheet" />
     <link href="~/plugins/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
-    <title>KDS 廚房控菜系統</title>
+    <title>@DeveloperNname @SystemName</title>
     <style>
         /* Gif圖片 */
         .loading {
@@ -35,7 +37,7 @@
             <div class="container">
                 <a href="../../index3.html" class="navbar-brand">
                     <img src="../../dist/img/fast.png" alt="Fast Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                    <span class="brand-text font-weight-light"><b>南農中心KDS廚房控菜系統</b></span>
+                    <span class="brand-text font-weight-light"><b>@DeveloperNname@SystemName</b></span>
                 </a>
                 <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -52,11 +54,11 @@
                             <h1 class="m-0"></h1>
                         </div>
                         <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
+                            @*<ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item active">PAGE1</li>
                                 <li class="breadcrumb-item"><a href="#">PAGE2</a></li>
                                 <li class="breadcrumb-item"><a href="#">PAGE3</a></li>
-                            </ol>
+                            </ol>*@
                         </div>
                     </div>
                 </div>
@@ -82,16 +84,16 @@
                                     <div class="card">
                                         <div class="card-header p-2">
                                             <ul class="nav nav-pills">
-                                                <li class="nav-item"><a class="nav-link active" href="#all" data-toggle="tab"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">全部訂單</font></font></a></li>
-                                                <li class="nav-item"><a class="nav-link" href="#new" data-toggle="tab"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">新訂單</font></font></a></li>
-                                                <li class="nav-item"><a class="nav-link" href="#active" data-toggle="tab"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">製作中</font></font></a></li>
-                                                <li class="nav-item"><a class="nav-link" href="#picker" data-toggle="tab"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">待取餐</font></font></a></li>
-                                                <li class="nav-item"><a class="nav-link" href="#final" data-toggle="tab"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">已完成</font></font></a></li>
+                                                <li class="nav-item"><a class="nav-link active" href="#tab1" data-toggle="tab"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;" id="flag1">全部訂單</font></font></a></li>
+                                                <li class="nav-item"><a class="nav-link" href="#tab2" data-toggle="tab"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;" id="flag2">新訂單</font></font></a></li>
+                                                <li class="nav-item"><a class="nav-link" href="#tab3" data-toggle="tab"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;" id="flag3">製作中</font></font></a></li>
+                                                <li class="nav-item"><a class="nav-link" href="#tab4" data-toggle="tab"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;" id="flag4">待取餐</font></font></a></li>
+                                                <li class="nav-item"><a class="nav-link" href="#tab5" data-toggle="tab"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;" id="flag5">已完成</font></font></a></li>
                                             </ul>
                                         </div>
                                         <div class="card-body">
                                             <div class="tab-content">
-                                                <div class="tab-pane active" id="all">
+                                                <div class="tab-pane active" id="tab1">
                                                     <table id="orderTable" class="table table-bordered table-hover">
                                                         <thead>
                                                             <tr>
@@ -102,174 +104,73 @@
                                                                 <th style="width: 10%;"></th>
                                                             </tr>
                                                         </thead>
-                                                        <tbody>
-                                                            @foreach (var order in Model)
-                                                            {
-                                                                <tr>
-                                                                    <td>
-                                                                        <div class="bs-stepper linear">
-                                                                            <div class="bs-stepper-header" role="tablist">
-                                                                                @if (order.State == "待製作")
-                                                                                {
-                                                                                    <div class="step active" data-target="#logins-part">
-                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger" aria-selected="true">
-                                                                                            <span class="bs-stepper-circle">1</span>
-                                                                                            <span class="bs-stepper-label">待製作</span>
-                                                                                            <span class="bs-stepper-label">@order.DateTime.ToString("HH:mm:ss")</span>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                    <div class="line"></div>
-                                                                                    <div class="step" data-target="#information-part">
-                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
-                                                                                            <span class="bs-stepper-circle">2</span>
-                                                                                            <span class="bs-stepper-label">製作中</span>
-                                                                                            <span class="bs-stepper-label">
-                                                                                                @if (order.CookTime != null)
-                                                                                                {
-                                                                                                    @order.CookTime.Value.ToString("HH:mm:ss")
-                                                                                                }
-                                                                                                else
-                                                                                                {
-                                                                                                    @:N/A
-                                                                                                }
-                                                                                            </span>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                    <div class="line"></div>
-                                                                                    <div class="step" data-target="#information-part">
-                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
-                                                                                            <span class="bs-stepper-circle">3</span>
-                                                                                            <span class="bs-stepper-label">待取餐</span>
-                                                                                            <span class="bs-stepper-label">
-                                                                                                @if (order.MakeTime != null)
-                                                                                                {
-                                                                                                    @order.MakeTime.Value.ToString("HH:mm:ss")
-                                                                                                }
-                                                                                                else
-                                                                                                {
-                                                                                                    @:N/A
-                                                                                                }
-                                                                                            </span>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                    <div class="line"></div>
-                                                                                    <div class="step" data-target="#information-part">
-                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
-                                                                                            <span class="bs-stepper-circle">4</span>
-                                                                                            <span class="bs-stepper-label">已完成</span>
-                                                                                            <span class="bs-stepper-label">
-                                                                                                @if (order.TakeTime != null)
-                                                                                                {
-                                                                                                    @order.TakeTime.Value.ToString("HH:mm:ss")
-                                                                                                }
-                                                                                                else
-                                                                                                {
-                                                                                                    @:N/A
-                                                                                                }
-                                                                                            </span>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                }
-                                                                                else
-                                                                                {
-                                                                                    <div class="step" data-target="#logins-part">
-                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger" aria-selected="false" disabled="disabled">
-                                                                                            <span class="bs-stepper-circle">1</span>
-                                                                                            <span class="bs-stepper-label">等待製作</span>
-                                                                                            <span class="bs-stepper-label">@order.DateTime.ToString("HH:mm:ss")</span>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                    <div class="line"></div>
-                                                                                    <div class="step" data-target="#information-part">
-                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
-                                                                                            <span class="bs-stepper-circle">2</span>
-                                                                                            <span class="bs-stepper-label">製作中</span>
-                                                                                            <span class="bs-stepper-label">
-                                                                                                @if (order.CookTime != null)
-                                                                                                {
-                                                                                                    @order.CookTime.Value.ToString("HH:mm:ss")
-                                                                                                }
-                                                                                                else
-                                                                                                {
-                                                                                                    @:N/A
-                                                                                                }
-                                                                                            </span>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                    <div class="line"></div>
-                                                                                    <div class="step" data-target="#information-part">
-                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
-                                                                                            <span class="bs-stepper-circle">3</span>
-                                                                                            <span class="bs-stepper-label">待取餐</span>
-                                                                                            <span class="bs-stepper-label">
-                                                                                                @if (order.MakeTime != null)
-                                                                                                {
-                                                                                                    @order.MakeTime.Value.ToString("HH:mm:ss")
-                                                                                                }
-                                                                                                else
-                                                                                                {
-                                                                                                    @:N/A
-                                                                                                }
-                                                                                            </span>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                    <div class="line"></div>
-                                                                                    <div class="step active" data-target="#information-part">
-                                                                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="true">
-                                                                                            <span class="bs-stepper-circle">4</span>
-                                                                                            <span class="bs-stepper-label">已完成</span>
-                                                                                            <span class="bs-stepper-label">
-                                                                                                @if (order.TakeTime != null)
-                                                                                                {
-                                                                                                    @order.TakeTime.Value.ToString("HH:mm:ss")
-                                                                                                }
-                                                                                                else
-                                                                                                {
-                                                                                                    @:N/A
-                                                                                                }
-                                                                                            </span>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                }
-                                                                            </div>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td>@order.OrderID</td>
-                                                                    <td>
-                                                                        <ul>
-                                                                            @foreach (var item in order.OrderDetail)
-                                                                            {
-                                                                                <li>@item.Name X @item.Quantity (@item.Note)</li>
-                                                                            }
-                                                                        </ul>
-                                                                    </td>
-                                                                    <td>@order.Note</td>
-                                                                    <td>
-                                                                        @if (order.State != "已完成")
-                                                                        {
-                                                                            <button class="btn btn-danger" onclick="updateOrderStatus(@order.OrderID, '@order.State')">下一步</button>
-                                                                        }
-                                                                    </td>
-                                                                </tr>
-                                                            }
+                                                        <tbody id="list1">
                                                         </tbody>
                                                     </table>
                                                 </div>
 
-                                                <div class="tab-pane" id="new">
-                                                    <h1>新訂單</h1>
+                                                <div class="tab-pane" id="tab2">
+                                                    <table id="orderTable" class="table table-bordered table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 55%;">狀態</th>
+                                                                <th style="width: 10%;">編號</th>
+                                                                <th style="width: 20%;">明細</th>
+                                                                <th style="width: 5%;">備註</th>
+                                                                <th style="width: 10%;"></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="list2">
+                                                        </tbody>
+                                                    </table>
                                                 </div>
 
-                                                <div class="tab-pane" id="active">
-                                                    <h1>製作中</h1>
+                                                <div class="tab-pane" id="tab3">
+                                                    <table id="orderTable" class="table table-bordered table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 55%;">狀態</th>
+                                                                <th style="width: 10%;">編號</th>
+                                                                <th style="width: 20%;">明細</th>
+                                                                <th style="width: 5%;">備註</th>
+                                                                <th style="width: 10%;"></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="list3">
+                                                        </tbody>
+                                                    </table>
                                                 </div>
 
-                                                <div class="tab-pane" id="picker">
-                                                    <h1>待取餐</h1>
+                                                <div class="tab-pane" id="tab4">
+                                                    <table id="orderTable" class="table table-bordered table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 55%;">狀態</th>
+                                                                <th style="width: 10%;">編號</th>
+                                                                <th style="width: 20%;">明細</th>
+                                                                <th style="width: 5%;">備註</th>
+                                                                <th style="width: 10%;"></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="list4">
+                                                        </tbody>
+                                                    </table>
                                                 </div>
 
-                                                <div class="tab-pane" id="final">
-                                                    <h1>已完成</h1>
+                                                <div class="tab-pane" id="tab5">
+                                                    <table id="orderTable" class="table table-bordered table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 55%;">狀態</th>
+                                                                <th style="width: 10%;">編號</th>
+                                                                <th style="width: 20%;">明細</th>
+                                                                <th style="width: 5%;">備註</th>
+                                                                <th style="width: 10%;"></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="list5">
+                                                        </tbody>
+                                                    </table>
                                                 </div>
                                             </div>
                                         </div>
@@ -277,20 +178,17 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <button class="btn btn-danger" onclick="CreateNewOrder()">送出</button>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
 
         <aside class="control-sidebar control-sidebar-dark">
         </aside>
 
         <footer class="main-footer">
-            <strong><a href="https://www.fast.org.tw/">本系統由財團法人農漁會南區資訊中心設計維護</a></strong>
+            <strong><a href="https://www.fast.org.tw/">本系統由{@DeveloperNname}設計維護</a></strong>
         </footer>
     </div>
     <script src="~/Scripts/jquery.min.js"></script>
@@ -312,13 +210,127 @@
     <script src="~/plugins/sweetalert2/sweetalert2.all.min.js"></script>
 
     <script>
+        $(function () {
+            $.ajax({
+                    url: "/api/Order/getAllOrders",
+                    type: 'GET',
+                success: function (data) {
+                        innerHtml(data);
+                    },
+                    error: function () {
+                        alert('無法取得訂單');
+                    }
+                });
+
+            var chat = $.connection.ChatHub;
+
+            chat.client.addNewMessageToPage = function (data) {
+                innerHtml(data);
+            };
+
+            $.connection.hub.start().done(function () {
+            });
+        });
+
        function updateOrderStatus(orderId, currentState) {
                 $.ajax({
-                    url: '@Url.Action("UpdateOrderStatus", "Home")',
-                    type: 'POST',
+                    //url: '@Url.Action("UpdateOrderStatus", "Home")',
+                    url: "/api/Order/UpdateOrderStatus",
+                    type: 'GET',
                     data: { orderId: orderId, currentState: currentState },
-                    success: function () {
-                        // 更新視圖以反映新的訂單狀態
+                    success: function (data) {
+                        //innerHtml(data);
+                    },
+                    error: function () {
+                        alert('無法更新訂單狀態');
+                    }
+                });
+        }
+
+        function innerHtml(data) {
+            console.log("innerHtml");
+            var d = data.split("||");
+            if (d.length > 1) {
+                $("#list1").html(d[0]);
+                $("#list2").html(d[1]);
+                $("#list3").html(d[2]);
+                $("#list4").html(d[3]);
+                $("#list5").html(d[4]);
+
+                // 解析統計信息
+                var stats = JSON.parse(d[5]);
+
+                // 顯示訂單筆數統計
+                $("#flag1").text(`全部訂單(${stats.AllOrdersCount})`);
+                $("#flag2").text(`新訂單(${stats.NewOrdersCount})`);
+                $("#flag3").text(`製作中(${stats.InProgressOrdersCount})`);
+                $("#flag4").text(`待取餐(${stats.WaitingForPickupOrdersCount})`);
+                $("#flag5").text(`已完成(${stats.CompletedOrdersCount})`);
+
+                initAudioContext();
+
+                console.log(d.length );
+                if (d.length > 7) {
+                    showMessage(d[6], d[7].replace(/\n/g, "<br>"));
+                    printOrder(d[8]);
+                }
+            }
+        }
+
+        function initAudioContext() {
+            // 創建AudioContext
+            var context = new (window.AudioContext || window.webkitAudioContext)();
+
+            // 繼續AudioContext
+            if (context.state === 'suspended') {
+                context.resume().then(() => {
+                    console.log('AudioContext resumed');
+                    playNotificationSound(context);
+                });
+            } else {
+                playNotificationSound(context);
+            }
+        }
+
+        function playNotificationSound() {
+            var context = new (window.AudioContext || window.webkitAudioContext)();
+            var source = context.createBufferSource();
+
+            // 使用@Url.Content獲取Web根目錄下的文件路徑
+            var soundFilePath = '@Url.Content("~/Sound/pikachu.mp3")';
+
+            // 加載音訊文件，然後播放
+            fetch(soundFilePath)
+                .then(response => response.arrayBuffer())
+                .then(data => context.decodeAudioData(data))
+                .then(buffer => {
+                    source.buffer = buffer;
+                    source.connect(context.destination);
+                    source.start(0);
+                })
+                .catch(error => console.error(error));
+        }
+
+        function showMessage(title,msg) {
+            $("#MsgDiv").show();
+            $("#Msg").text(title);
+
+            Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'success',
+                title: title,
+                html: msg,
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
+
+        function CreateNewOrder() {
+                $.ajax({
+                    url: "/api/Order",
+                    type: 'GET',
+                    success: function (data) {
                         location.reload();
                     },
                     error: function () {
@@ -327,127 +339,120 @@
                 });
         }
 
-        function CreateNewOrder() {
-                $.ajax({
-                    url: "/api/Order/GetNewOrder",
-                    type: 'GET',
-                    success: function (data) {
-                        // 更新視圖以反映新的訂單狀態
-                        //location.reload();
-                        console.log(data);
-                        appendOrdersToTable(data);
-                    },
-                    error: function () {
-                        alert('無法更新訂單狀態。');
+        function printOrder(orderId) {
+            $.ajax({
+                url: "/api/Order/PrintOrder",
+                type: 'GET',
+                data: { orderId: orderId },
+                success: function (data) {
+                    console.log(data);
                     }
                 });
         }
 
-        function appendOrdersToTable(orders) {
-            var tbody = $("#orderTable tbody");
-            tbody.empty();
+        //$(function () {
+        //    //引用為該Hub自動生成的代理
+        //    var chat = $.connection.ChatHub;
+        //    //創建一個用於 Hub 回呼以顯示消息的函數
+        //    chat.client.addNewMessageToPage = function (data) {
+        //        // 顯示訊息
+        //        $("#MsgDiv").show();
 
-            console.log(orders.OrderID);
+        //        // 清除文本内容
+        //        $("#Msg").text("");
 
-            $.each(orders, function (index, order) {
-                var row = "<tr>" +
-                    "<td>" +
-                    "<div class='bs-stepper linear'>" +
-                    "<div class='bs-stepper-header' role='tablist'>" +
-                    "<div class='step active' data-target='#logins-part'>" +
-                    "<button type='button' class='step-trigger' role='tab' aria-controls='logins-part' id='logins-part-trigger' aria-selected='true'>" +
-                    "<span class='bs-stepper-circle'>1</span>" +
-                    "<span class='bs-stepper-label'>" + order.Status + "</span>" +
-                    "<span class='bs-stepper-label'>" + order.TimeStamp + "</span>" +
-                    "</button>" +
-                    "</div>" +
-                    "<div class='line'></div>";
+        //        //var parts = message.split('-----------------------');
+        //        //if (parts.length > 1) {
+        //        //    var extractedText = parts[0].trim();
+        //        //    console.log(extractedText);
+        //        //    //在頁面上添加消息
+        //        //    $('#Msg').append('<strong>' + extractedText + '</strong>');
+        //        //}
 
-                // 根據不同狀態和時間戳添加其他條件
-                if (order.Status == "製作中") {
-                    row += "<div class='step' data-target='#information-part'>" +
-                        "<button type='button' class='step-trigger' role='tab' aria-controls='information-part' id='information-part-trigger' aria-selected='false' disabled='disabled'>" +
-                        "<span class='bs-stepper-circle'>2</span>" +
-                        "<span class='bs-stepper-label'>製作中</span>" +
-                        "<span class='bs-stepper-label'>" + order.CookTime + "</span>" +
-                        "</button>" +
-                        "</div>" +
-                        "<div class='line'></div>";
-                }
+        //        //Swal.fire({
+        //        //    toast: true,
+        //        //    position: 'top-end',
+        //        //    icon: 'success',
+        //        //    title: name,
+        //        //    html: message.replace(/\n/g, "<br>"),
+        //        //    showConfirmButton: false,
+        //        //    timer: 1500
+        //        //})
 
-                // 重複此過程以處理其他狀態
 
-                row += "</div></div></td>" +
-                    "<td>" + order.OrderID + "</td>" +
-                    "<td>" +
-                    "<ul>";
+        //        // 在成功回調函數中處理返回的訂單數據
+        //        //updateOrderStepperHeader(data.LatestOrder, data.LatestOrderDetail);
 
-                $.each(order.OrderDetail, function (index, item) {
-                    row += "<li>" + item.Name + " x " + item.Quantity + " (" + item.Note + ")</li>";
-                });
+        //        // 取得 bs-stepper-header 的 jQuery 物件
+        //        var stepperHeader = $('#orderStepperHeader');
 
-                row += "</ul></td>" +
-                    "<td>" + order.Note + "</td>" +
-                    "<td>";
+        //        // 清空原有的訂單項目
+        //        stepperHeader.empty();
 
-                if (order.Status != "已完成") {
-                    row += "<button class='btn btn-danger' onclick='updateOrderStatus(" + order.OrderID + ", \"" + order.Status + "\")'>下一步</button>";
-                }
+        //        // 迭代處理每一個訂單
+        //        $.each(data, function (index, order) {
+        //            // 創建一個新的行元素
+        //            var row = $('<tr></tr>');
 
-                row += "</td></tr>";
+        //            // 創建 bs-stepper 元素
+        //            var stepper = $('<div class="bs-stepper linear"></div>');
 
-                tbody.append(row);
-            }
-        };
+        //            // 創建 bs-stepper-header 元素
+        //            var stepperHeader = $('<div class="bs-stepper-header" role="tablist"></div>');
 
-        $(function () {
-            //引用為該Hub自動生成的代理
-            var chat = $.connection.ChatHub;
-            //創建一個用於 Hub 回呼以顯示消息的函數
-            chat.client.addNewMessageToPage = function (name, message) {
-                // 顯示訊息
-                $("#MsgDiv").show();
+        //            // 迭代處理每一個步驟
+        //            for (var step = 1; step <= 4; step++) {
+        //                // 創建步驟元素
+        //                var stepElement = $('<div class="step" data-target="#step' + step + '"></div>');
 
-                // 清除文本内容
-                $("#Msg").text("");
+        //                // 添加步驟內容
+        //                stepElement.append('<button type="button" class="step-trigger" role="tab" aria-controls="step' + step + '">' +
+        //                    '<span class="bs-stepper-circle">' + step + '</span>' +
+        //                    '<span class="bs-stepper-label">' + getStepLabel(order, step) + '</span>' +
+        //                    '<span class="bs-stepper-label">' + getDateTime(order, step) + '</span>' +
+        //                    '</button>');
 
-                var parts = message.split('-----------------------');
-                if (parts.length > 1) {
-                    var extractedText = parts[0].trim();
-                    console.log(extractedText);
-                    //在頁面上添加消息
-                    $('#Msg').append('<strong>' + extractedText + '</strong>');
-                }
+        //                // 將步驟元素添加到 bs-stepper-header
+        //                stepperHeader.append(stepElement);
 
-                Swal.fire({
-                    toast: true,
-                    position: 'top-end',
-                    icon: 'success',
-                    title: name,
-                    html: message.replace(/\n/g, "<br>"),
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            };
-            //獲取用戶名並存儲以便添加到消息前面
-            //$('#displayname').val(prompt('Enter your name:', ''));
-            //將焦點初始化設置在消息輸入框上
-            //$('#message').focus();
-            //啟動連接
-            $.connection.hub.start().done(function () {
-                //$('#sendmessage').click(function () {
-                //    //調用 Hub 上的 Send 方法
-                //    chat.server.send($('#displayname').val(), $('#message').val());
-                //    //清空文本框並為下一條評論重置焦點
-                //    $('#message').val('').focus();
-                //});
-            });
-        });
-        //這個可選的函數用於對頁面中的消息進行 HTML 編碼
-        function htmlEncode(value) {
-            var encodedValue = $('<div />').text(value).html();
-            return encodedValue;
-        }
+        //                // 如果不是最後一個步驟，添加分隔線
+        //                if (step !== 4) {
+        //                    stepperHeader.append('<div class="line"></div>');
+        //                }
+        //            }
+
+        //            // 將 bs-stepper-header 添加到 bs-stepper
+        //            stepper.append(stepperHeader);
+
+        //            // 將 bs-stepper 添加到行元素
+        //            row.append($('<td></td>').append(stepper));
+
+        //            // 添加其他訂單信息到行元素
+        //            row.append('<td>' + order.OrderID + '</td>');
+        //            row.append('<td><ul>...</ul></td>'); // 這裡需要添加訂單明細的代碼
+        //            row.append('<td>' + order.Note + '</td>');
+        //            row.append('<td><button class="btn btn-danger" onclick="updateOrderStatus(' + order.OrderID + ', \'' + order.State + '\')">下一步</button></td>');
+
+        //            // 將行元素添加到 #orderStepperHeader
+        //            stepperHeader.append(row);
+        //        });
+
+
+        //    };
+        //    //獲取用戶名並存儲以便添加到消息前面
+        //    //$('#displayname').val(prompt('Enter your name:', ''));
+        //    //將焦點初始化設置在消息輸入框上
+        //    //$('#message').focus();
+        //    //啟動連接
+        //    $.connection.hub.start().done(function () {
+        //        //$('#sendmessage').click(function () {
+        //        //    //調用 Hub 上的 Send 方法
+        //        //    chat.server.send($('#displayname').val(), $('#message').val());
+        //        //    //清空文本框並為下一條評論重置焦點
+        //        //    $('#message').val('').focus();
+        //        //});
+        //    });
+        //});
     </script>
 
 </body>

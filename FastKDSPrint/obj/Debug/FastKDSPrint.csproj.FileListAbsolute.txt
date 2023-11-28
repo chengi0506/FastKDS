@@ -1,0 +1,12 @@
+E:\WorkSpace\FastKDS\FastKDSPrint\bin\Debug\FastKDSPrint.exe.config
+E:\WorkSpace\FastKDS\FastKDSPrint\bin\Debug\FastKDSPrint.exe
+E:\WorkSpace\FastKDS\FastKDSPrint\bin\Debug\FastKDSPrint.pdb
+E:\WorkSpace\FastKDS\FastKDSPrint\bin\Debug\log4net.dll
+E:\WorkSpace\FastKDS\FastKDSPrint\bin\Debug\log4net.xml
+E:\WorkSpace\FastKDS\FastKDSPrint\obj\Debug\FastKDSPrint.csproj.SuggestedBindingRedirects.cache
+E:\WorkSpace\FastKDS\FastKDSPrint\obj\Debug\FastKDSPrint.ProjectInstaller.resources
+E:\WorkSpace\FastKDS\FastKDSPrint\obj\Debug\FastKDSPrint.csproj.GenerateResource.cache
+E:\WorkSpace\FastKDS\FastKDSPrint\obj\Debug\FastKDSPrint.csproj.CoreCompileInputs.cache
+E:\WorkSpace\FastKDS\FastKDSPrint\obj\Debug\FastKDSPrint.csproj.CopyComplete
+E:\WorkSpace\FastKDS\FastKDSPrint\obj\Debug\FastKDSPrint.exe
+E:\WorkSpace\FastKDS\FastKDSPrint\obj\Debug\FastKDSPrint.pdb

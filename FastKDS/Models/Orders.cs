@@ -11,7 +11,10 @@ namespace FastKDS.Models
     {
         [Key]
         [DisplayName("訂單編號")]
-        public int OrderID { get; set; }
+        public long OrderID { get; set; }
+
+        [DisplayName("POS訂單編號")]
+        public long? PosID { get; set; }
 
         [DisplayName("訂單時間")]
         public DateTime DateTime { get; set; }
@@ -33,6 +36,11 @@ namespace FastKDS.Models
         [DisplayName("取餐時間")]
         public DateTime? TakeTime { get; set; }
 
+        [DisplayName("發票編號")]
+        [StringLength(20)]
+        public string InvoNo { get; set; }
+
+
         [DisplayName("明細")]
         public List<OrderDetail> OrderDetail { get; set; }
 
@@ -41,9 +49,10 @@ namespace FastKDS.Models
             // 空的無參數構造函數
         }
 
-        public Orders(int orderId, DateTime dateTime, string note, List<OrderDetail> items, string state)
+        public Orders(long orderId,long posId, DateTime dateTime, string note, List<OrderDetail> items, string state)
         {
             OrderID = orderId;
+            PosID = posId;
             DateTime = dateTime;
             Note = note;
             OrderDetail = items;
@@ -58,7 +67,7 @@ namespace FastKDS.Models
         public int Id { get; set; }
 
         [DisplayName("訂單編號")]
-        public int OrderID { get; set; }
+        public long OrderID { get; set; }
 
         [DisplayName("品名")]
         public string Name { get; set; }
@@ -74,7 +83,7 @@ namespace FastKDS.Models
             // 空的無參數構造函數
         }
 
-        public OrderDetail(int orderid, string name, int quantity, string note)
+        public OrderDetail(long orderid, string name, int quantity, string note)
         {
             OrderID = orderid;
             Name = name;

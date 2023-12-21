@@ -23,7 +23,7 @@ namespace FastKDS
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             //初始化資料庫
-            Database.SetInitializer(new OrdersInitializer());
+            //Database.SetInitializer(new Configuration());
         }
     }
 }

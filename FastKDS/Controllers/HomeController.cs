@@ -34,7 +34,7 @@ namespace FastKDS.Controllers
             //};
 
             // 從資料庫檢索訂單數據
-            var orders = context.Orders.Include("OrderDetail").ToArray();
+            var orders = context.Orders.Include("OrderDetail").OrderByDescending(o => o.DateTime).ToArray();
 
             return View(orders);  // 將資料傳遞給視圖
         }
@@ -71,6 +71,8 @@ namespace FastKDS.Controllers
                     var hubContext = GlobalHost.ConnectionManager.GetHubContext<ChatHub>();
                     hubContext.Clients.All.addNewMessageToPage("訂單通知", message);
                     
+
+
                 }
             }
 

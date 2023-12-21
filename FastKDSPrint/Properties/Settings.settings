@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="FastKDSPrint.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="finishPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">D:\POS\Print\finish\</Value>
+    </Setting>
+    <Setting Name="processPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">D:\POS\Print\process\</Value>
+    </Setting>
+    <Setting Name="printerName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">EPSON TM-T82II Receipt</Value>
+    </Setting>
+    <Setting Name="fontName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">微軟正黑體</Value>
+    </Setting>
+    <Setting Name="fontSize" Type="System.Single" Scope="Application">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="logoPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">D:\POS\logo.png</Value>
+    </Setting>
+    <Setting Name="PrintNum" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

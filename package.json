@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "jdf2e-audio": "^1.0.1",
     "sweetalert2": "^11.7.32"
   }
 }

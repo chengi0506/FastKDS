@@ -76,6 +76,7 @@ namespace FastKDSPrint.Properties {
                 return ((string)(this["logoPath"]));
             }
         }
+<<<<<<< HEAD
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -85,5 +86,7 @@ namespace FastKDSPrint.Properties {
                 return ((int)(this["PrintNum"]));
             }
         }
+=======
+>>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
     }
 }

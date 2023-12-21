@@ -10,4 +10,7 @@ E:\WorkSpace\FastKDS\FastKDSPrint\obj\Debug\FastKDSPrint.csproj.CoreCompileInput
 E:\WorkSpace\FastKDS\FastKDSPrint\obj\Debug\FastKDSPrint.csproj.CopyComplete
 E:\WorkSpace\FastKDS\FastKDSPrint\obj\Debug\FastKDSPrint.exe
 E:\WorkSpace\FastKDS\FastKDSPrint\obj\Debug\FastKDSPrint.pdb
+<<<<<<< HEAD
 E:\WorkSpace\FastKDS\FastKDSPrint\obj\Debug\FastKDSPrint.csproj.AssemblyReference.cache
+=======
+>>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb

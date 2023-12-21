@@ -11,7 +11,10 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Drawing.Printing;
 using log4net;
+<<<<<<< HEAD
 using System.Threading;
+=======
+>>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
 
 namespace FastKDSPrint
 {
@@ -74,7 +77,10 @@ namespace FastKDSPrint
                     string destinationPath = Properties.Settings.Default.finishPath + fileName;
 
                     // 假設你有一個列印函式 PrintFile，用於列印指定的檔案
+<<<<<<< HEAD
                     Thread.Sleep(1000);
+=======
+>>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
                     PrintFile(sourcePath, Properties.Settings.Default.printerName);
 
                     // 搬移檔案到完成目錄
@@ -121,6 +127,10 @@ namespace FastKDSPrint
                         string logoFilePath = Properties.Settings.Default.logoPath; // 替換成您的LOGO圖片路徑
                         if (File.Exists(logoFilePath))
                         {
+<<<<<<< HEAD
+=======
+                            Log.Info($"插入LOGO圖片:{logoFilePath}");
+>>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
                             Image logoImage = Image.FromFile(logoFilePath);
                             e.Graphics.DrawImage(logoImage, new PointF(10, yPos));
                             yPos += logoImage.Height + 10; // 設定LOGO和文字之間的間距
@@ -141,10 +151,14 @@ namespace FastKDSPrint
                 Log.Info($"執行列印:{filePath}");
 
                 // 執行列印
+<<<<<<< HEAD
                 for (int i = 0; i < Properties.Settings.Default.PrintNum; i++)
                 {
                     pd.Print();
                 }
+=======
+                pd.Print();
+>>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
 
                 // 手動呼叫 Dispose
                 pd.Dispose();

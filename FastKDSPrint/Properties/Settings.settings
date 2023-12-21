@@ -20,8 +20,11 @@
     <Setting Name="logoPath" Type="System.String" Scope="Application">
       <Value Profile="(Default)">D:\POS\logo.png</Value>
     </Setting>
+<<<<<<< HEAD
     <Setting Name="PrintNum" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">2</Value>
     </Setting>
+=======
+>>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
   </Settings>
 </SettingsFile>

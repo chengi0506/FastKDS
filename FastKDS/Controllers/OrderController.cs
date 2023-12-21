@@ -12,7 +12,10 @@ using FastKDS.Hubs;
 using Newtonsoft.Json.Linq;
 using System.Data.Entity;
 using System.IO;
+<<<<<<< HEAD
 using System.Text;
+=======
+>>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
 
 namespace FastKDS.Controllers
 {
@@ -27,6 +30,7 @@ namespace FastKDS.Controllers
             已完成
         }
 
+<<<<<<< HEAD
         /// <summary>
         /// 取得全部訂單
         /// </summary>
@@ -44,11 +48,25 @@ namespace FastKDS.Controllers
         /// <param name="currentState"></param>
         /// <returns></returns>
         [HttpGet]
+=======
+
+        [HttpGet]
+        public IHttpActionResult getAllOrders()
+        {
+            return Ok(GenOrdersHtml(false));
+        }
+
+        [HttpGet]
+>>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
         public IHttpActionResult UpdateOrderStatus(int orderId, string currentState)
         {
             using (var context = new ApplicationDbContext())
             {
+<<<<<<< HEAD
                 var order = context.Orders.FirstOrDefault(o => o.OrderID==orderId);
+=======
+                var order = context.Orders.FirstOrDefault(o => o.OrderID == orderId);
+>>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
 
                 if (order != null)
                 {
@@ -76,11 +94,14 @@ namespace FastKDS.Controllers
             return Ok(GenOrdersHtml(false));
         }
 
+<<<<<<< HEAD
         /// <summary>
         /// 建立訂單
         /// </summary>
         /// <param name="jsonData"></param>
         /// <returns></returns>
+=======
+>>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
         // POST api/CreateNewOrder
         [HttpPost]
         //[Route("api/[controller]")]
@@ -129,11 +150,14 @@ namespace FastKDS.Controllers
             }
         }
 
+<<<<<<< HEAD
         /// <summary>
         /// 列印訂單
         /// </summary>
         /// <param name="orderId"></param>
         /// <returns></returns>
+=======
+>>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
         [HttpGet]
         //[Route("api/[controller]/printorder")]
         public IHttpActionResult PrintOrder(int orderId)
@@ -146,6 +170,7 @@ namespace FastKDS.Controllers
                     //取得訂單資料
                     var orders = context.Orders
                         .Include(o => o.OrderDetail)
+<<<<<<< HEAD
                         .SingleOrDefault(o => o.OrderID==orderId);
 
                     if (orders != null)
@@ -222,12 +247,33 @@ namespace FastKDS.Controllers
                         }
 
                         text += $"---------------------------{Environment.NewLine}取餐機震動後請至櫃台取餐{Environment.NewLine}";
+=======
+                        .SingleOrDefault(o => o.OrderID == orderId);
+
+                    if (orders != null)
+                    {
+                        text += $"訂單時間: {orders.DateTime.ToString("HH:mm:ss")}{Environment.NewLine}訂單編號: {orders.OrderID}{Environment.NewLine}訂單備註: {orders.Note}{Environment.NewLine}-----------------------{Environment.NewLine}";
+
+                        var latestOrderDetail = context.OrderDetails.Where(o => o.OrderID == orders.OrderID).ToList();
+                        int Pno = 1;
+                        foreach (var orderDetail in latestOrderDetail)
+                        {
+                            text += $"{Pno}.{orderDetail.Name} X {orderDetail.Quantity} ({orderDetail.Note}){Environment.NewLine}";
+                            Pno++;
+                        }
+
+                        text += $"-----------------------{Environment.NewLine}{Environment.NewLine}{Environment.NewLine}{Environment.NewLine}{Environment.NewLine}";
+>>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
                     }
 
                 }
 
                 // 指定目錄位置
+<<<<<<< HEAD
                 string printDir = Properties.Settings.Default.processPath;
+=======
+                string printDir = @"D:\POS\Print\process";
+>>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
 
                 // 檢查目錄是否存在
                 if (!Directory.Exists(printDir))
@@ -263,7 +309,10 @@ namespace FastKDS.Controllers
                     .Include(o => o.OrderDetail)
                     .Where(o => o.DateTime >= currentDate && o.DateTime < nextDate)
                     .OrderByDescending(o => o.DateTime)
+<<<<<<< HEAD
                     .ThenByDescending(o => o.OrderID)
+=======
+>>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
                     .ToList();
 
 
@@ -296,6 +345,7 @@ namespace FastKDS.Controllers
                     {
                         string filtertatusHtml = GenerateOrderStatusHtml(filter[i].State, filter[i].DateTime, filter[i].CookTime, filter[i].MakeTime, filter[i].TakeTime);
 
+<<<<<<< HEAD
                         string pickNum = string.Empty;
                         string note = string.Empty;
 
@@ -354,6 +404,30 @@ namespace FastKDS.Controllers
                                         </td>
                                     </tr>
                         ";
+=======
+                        html += $@"
+                        <tr>
+                            <td>
+                                <div class='bs-stepper linear'>
+                                    <div class='bs-stepper-header' role='tablist'>
+                                        {filtertatusHtml}
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{filter[i].OrderID}</td>
+                            <td>
+                                <ul>
+                                    {string.Join("", filter[i].OrderDetail.Select(item => $"<li>{item.Name} X {item.Quantity} ({item.Note})</li>"))}
+                                </ul>
+                            </td>
+                            <td>{filter[i].Note}</td>
+                            <td>
+                                {(filter[i].State != "已完成" ? "<button class='btn btn-block btn-outline-danger' onclick='updateOrderStatus(" + filter[i].OrderID + ", \"" + filter[i].State + "\")'>下一步</button><br><br>" : "")}
+                                <button class='btn btn-block btn-outline-info' onclick='printOrder(""{filter[i].OrderID}"")'>列印</button>
+                            </td>
+                        </tr>
+                        ";                        
+>>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
                     }
                     index++;
                     html += "||";
@@ -376,18 +450,30 @@ namespace FastKDS.Controllers
                 {
                     //取得最新一筆訂單
                     var latestOrder = context.Orders.OrderByDescending(o => o.DateTime).FirstOrDefault();
+<<<<<<< HEAD
                     html += $"{latestOrder.DateTime.ToString("HH:mm:ss")}新訂單【{latestOrder.PosID}】通知!";
+=======
+                    html += $"{latestOrder.DateTime.ToString("HH:mm:ss")}新訂單【{latestOrder.OrderID}】通知!";
+>>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
                     html += "||";
 
                     if (latestOrder != null)
                     {
+<<<<<<< HEAD
                         string text = $"訂單時間: {latestOrder.DateTime.ToString("HH:mm:ss")}{Environment.NewLine}訂單編號: {latestOrder.PosID}{Environment.NewLine}訂單備註: {latestOrder.Note}{Environment.NewLine}-----------------------{Environment.NewLine}";
+=======
+                        string text = $"訂單時間: {latestOrder.DateTime.ToString("HH:mm:ss")}{Environment.NewLine}訂單編號: {latestOrder.OrderID}{Environment.NewLine}訂單備註: {latestOrder.Note}{Environment.NewLine}-----------------------{Environment.NewLine}";
+>>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
 
                         var latestOrderDetail = context.OrderDetails.Where(o => o.OrderID == latestOrder.OrderID).ToList();
                         int Pno = 1;
                         foreach (var orderDetail in latestOrderDetail)
                         {
+<<<<<<< HEAD
                             text += $"{Pno}.{orderDetail.Name} X {orderDetail.Quantity}{Environment.NewLine}{orderDetail.Note}{Environment.NewLine}";
+=======
+                            text += $"{Pno}.{orderDetail.Name} X {orderDetail.Quantity} ({orderDetail.Note}){Environment.NewLine}";
+>>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
                             Pno++;
                         }
 

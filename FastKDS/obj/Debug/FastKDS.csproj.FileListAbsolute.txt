@@ -144,9 +144,12 @@ E:\WorkSpace\FastKDS\FastKDS\bin\System.Numerics.Vectors.xml
 E:\WorkSpace\FastKDS\FastKDS\bin\System.Runtime.CompilerServices.Unsafe.xml
 E:\WorkSpace\FastKDS\FastKDS\bin\System.Threading.Tasks.Extensions.xml
 E:\WorkSpace\FastKDS\FastKDS\bin\System.ValueTuple.xml
+<<<<<<< HEAD
 E:\WorkSpace\FastKDS\FastKDS\obj\Debug\FastKDS.DAL.AddInvoNoToOrders.resources
 E:\WorkSpace\FastKDS\FastKDS\obj\Debug\FastKDS.DAL.UpdateOrderIDType.resources
 E:\WorkSpace\FastKDS\FastKDS\obj\Debug\FastKDS.DAL.AddPosID.resources
 E:\WorkSpace\FastKDS\FastKDS\bin\dist\img\fastlogo.ico
 E:\WorkSpace\FastKDS\FastKDS\bin\dist\myStyle.css
+=======
+>>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
 E:\WorkSpace\FastKDS\FastKDS\obj\Debug\FastKDS.csproj.AssemblyReference.cache

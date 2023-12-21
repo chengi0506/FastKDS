@@ -18,23 +18,8 @@
     <link href="~/dist/css/bs-stepper.min.css" rel="stylesheet" />
     <link href="~/plugins/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
     <title>@DeveloperNname @SystemName</title>
-<<<<<<< HEAD
     <link href="~/dist/myStyle.css" rel="stylesheet" />
     <link href="~/plugins/fontawesome-free/css/all.min.css" rel="stylesheet" />
-=======
-    <style>
-        /* Gif圖片 */
-        .loading {
-            background-image: url('../../dist/img/loading.gif');
-            background-repeat: no-repeat;
-            background-position: center;
-            height: 200px;
-            left: 0;
-            right: 0;
-            width: 100%;
-        }
-    </style>
->>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
 </head>
 <body class="hold-transition layout-top-nav">
     <div class="wrapper">
@@ -106,7 +91,6 @@
                                         <div class="card-body">
                                             <div class="tab-content">
                                                 <div class="tab-pane active" id="tab1">
-<<<<<<< HEAD
                                                     <div class="container">
                                                         <div class="row">
                                                             <div class="col-md-12">
@@ -216,85 +200,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-=======
-                                                    <table id="orderTable" class="table table-bordered table-hover">
-                                                        <thead>
-                                                            <tr>
-                                                                <th style="width: 55%;">狀態</th>
-                                                                <th style="width: 10%;">編號</th>
-                                                                <th style="width: 20%;">明細</th>
-                                                                <th style="width: 5%;">備註</th>
-                                                                <th style="width: 10%;"></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="list1">
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-
-                                                <div class="tab-pane" id="tab2">
-                                                    <table id="orderTable" class="table table-bordered table-hover">
-                                                        <thead>
-                                                            <tr>
-                                                                <th style="width: 55%;">狀態</th>
-                                                                <th style="width: 10%;">編號</th>
-                                                                <th style="width: 20%;">明細</th>
-                                                                <th style="width: 5%;">備註</th>
-                                                                <th style="width: 10%;"></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="list2">
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-
-                                                <div class="tab-pane" id="tab3">
-                                                    <table id="orderTable" class="table table-bordered table-hover">
-                                                        <thead>
-                                                            <tr>
-                                                                <th style="width: 55%;">狀態</th>
-                                                                <th style="width: 10%;">編號</th>
-                                                                <th style="width: 20%;">明細</th>
-                                                                <th style="width: 5%;">備註</th>
-                                                                <th style="width: 10%;"></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="list3">
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-
-                                                <div class="tab-pane" id="tab4">
-                                                    <table id="orderTable" class="table table-bordered table-hover">
-                                                        <thead>
-                                                            <tr>
-                                                                <th style="width: 55%;">狀態</th>
-                                                                <th style="width: 10%;">編號</th>
-                                                                <th style="width: 20%;">明細</th>
-                                                                <th style="width: 5%;">備註</th>
-                                                                <th style="width: 10%;"></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="list4">
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-
-                                                <div class="tab-pane" id="tab5">
-                                                    <table id="orderTable" class="table table-bordered table-hover">
-                                                        <thead>
-                                                            <tr>
-                                                                <th style="width: 55%;">狀態</th>
-                                                                <th style="width: 10%;">編號</th>
-                                                                <th style="width: 20%;">明細</th>
-                                                                <th style="width: 5%;">備註</th>
-                                                                <th style="width: 10%;"></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="list5">
-                                                        </tbody>
-                                                    </table>
->>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
                                                 </div>
                                             </div>
                                         </div>
@@ -345,7 +250,6 @@
                     type: 'GET',
                 success: function (data) {
                         innerHtml(data);
-<<<<<<< HEAD
                     },
                     error: function () {
                         alert('無法取得訂單');
@@ -373,15 +277,10 @@
                     },
                     error: function () {
                         alert('無法更新訂單狀態');
-=======
-                    },
-                    error: function () {
-                        alert('無法取得訂單');
->>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
                     }
                 });
+        }
 
-<<<<<<< HEAD
         var audio = new Audio('@Url.Content("~/Sound/pikachu.mp3")');
 
         function playAudio() {
@@ -514,38 +413,16 @@
         function CreateNewOrder() {
                 $.ajax({
                     url: "/api/Order",
-=======
-            var chat = $.connection.ChatHub;
-
-            chat.client.addNewMessageToPage = function (data) {
-                innerHtml(data);
-            };
-
-            $.connection.hub.start().done(function () {
-            });
-        });
-
-       function updateOrderStatus(orderId, currentState) {
-                $.ajax({
-                    //url: '@Url.Action("UpdateOrderStatus", "Home")',
-                    url: "/api/Order/UpdateOrderStatus",
->>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
                     type: 'GET',
-                    data: { orderId: orderId, currentState: currentState },
                     success: function (data) {
-<<<<<<< HEAD
                         location.reload();
-=======
-                        //innerHtml(data);
->>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
                     },
                     error: function () {
-                        alert('無法更新訂單狀態');
+                        alert('無法更新訂單狀態。');
                     }
                 });
         }
 
-<<<<<<< HEAD
         function printOrder(orderId) {
             $.ajax({
                 url: "/api/Order/PrintOrder",
@@ -608,109 +485,6 @@
         function backToTop() {
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
-=======
-        function innerHtml(data) {
-            console.log("innerHtml");
-            var d = data.split("||");
-            if (d.length > 1) {
-                $("#list1").html(d[0]);
-                $("#list2").html(d[1]);
-                $("#list3").html(d[2]);
-                $("#list4").html(d[3]);
-                $("#list5").html(d[4]);
-
-                // 解析統計信息
-                var stats = JSON.parse(d[5]);
-
-                // 顯示訂單筆數統計
-                $("#flag1").text(`全部訂單(${stats.AllOrdersCount})`);
-                $("#flag2").text(`新訂單(${stats.NewOrdersCount})`);
-                $("#flag3").text(`製作中(${stats.InProgressOrdersCount})`);
-                $("#flag4").text(`待取餐(${stats.WaitingForPickupOrdersCount})`);
-                $("#flag5").text(`已完成(${stats.CompletedOrdersCount})`);
-
-                initAudioContext();
-
-                console.log(d.length );
-                if (d.length > 7) {
-                    showMessage(d[6], d[7].replace(/\n/g, "<br>"));
-                    printOrder(d[8]);
-                }
-            }
-        }
-
-        function initAudioContext() {
-            // 創建AudioContext
-            var context = new (window.AudioContext || window.webkitAudioContext)();
-
-            // 繼續AudioContext
-            if (context.state === 'suspended') {
-                context.resume().then(() => {
-                    console.log('AudioContext resumed');
-                    playNotificationSound(context);
-                });
-            } else {
-                playNotificationSound(context);
-            }
-        }
-
-        function playNotificationSound() {
-            var context = new (window.AudioContext || window.webkitAudioContext)();
-            var source = context.createBufferSource();
-
-            // 使用@Url.Content獲取Web根目錄下的文件路徑
-            var soundFilePath = '@Url.Content("~/Sound/pikachu.mp3")';
-
-            // 加載音訊文件，然後播放
-            fetch(soundFilePath)
-                .then(response => response.arrayBuffer())
-                .then(data => context.decodeAudioData(data))
-                .then(buffer => {
-                    source.buffer = buffer;
-                    source.connect(context.destination);
-                    source.start(0);
-                })
-                .catch(error => console.error(error));
-        }
-
-        function showMessage(title,msg) {
-            $("#MsgDiv").show();
-            $("#Msg").text(title);
-
-            Swal.fire({
-                toast: true,
-                position: 'top-end',
-                icon: 'success',
-                title: title,
-                html: msg,
-                showConfirmButton: false,
-                timer: 1500
-            })
-        }
-
-        function CreateNewOrder() {
-                $.ajax({
-                    url: "/api/Order",
-                    type: 'GET',
-                    success: function (data) {
-                        location.reload();
-                    },
-                    error: function () {
-                        alert('無法更新訂單狀態。');
-                    }
-                });
-        }
-
-        function printOrder(orderId) {
-            $.ajax({
-                url: "/api/Order/PrintOrder",
-                type: 'GET',
-                data: { orderId: orderId },
-                success: function (data) {
-                    console.log(data);
-                    }
-                });
->>>>>>> 728cc880c8cfc9ac557b6e69bcc28b4a82b20cfb
         }
 
         //$(function () {

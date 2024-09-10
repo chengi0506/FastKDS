@@ -1,0 +1,184 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B3A9D243-B653-496C-9709-E222A337444F}|FastKDS\\FastKDS.csproj|d:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2kds\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\fastkds\\fastkds\\fastkds\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B3A9D243-B653-496C-9709-E222A337444F}|FastKDS\\FastKDS.csproj|solutionrelative:fastkds\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3A9D243-B653-496C-9709-E222A337444F}|FastKDS\\FastKDS.csproj|D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\fastkds\\plugins\\bs-stepper\\css\\bs-stepper.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{B3A9D243-B653-496C-9709-E222A337444F}|FastKDS\\FastKDS.csproj|solutionrelative:fastkds\\plugins\\bs-stepper\\css\\bs-stepper.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3A9D243-B653-496C-9709-E222A337444F}|FastKDS\\FastKDS.csproj|D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\fastkds\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B3A9D243-B653-496C-9709-E222A337444F}|FastKDS\\FastKDS.csproj|solutionrelative:fastkds\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3A9D243-B653-496C-9709-E222A337444F}|FastKDS\\FastKDS.csproj|D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\fastkds\\models\\orders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B3A9D243-B653-496C-9709-E222A337444F}|FastKDS\\FastKDS.csproj|solutionrelative:fastkds\\models\\orders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3A9D243-B653-496C-9709-E222A337444F}|FastKDS\\FastKDS.csproj|D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\fastkds\\dal\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B3A9D243-B653-496C-9709-E222A337444F}|FastKDS\\FastKDS.csproj|solutionrelative:fastkds\\dal\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3A9D243-B653-496C-9709-E222A337444F}|FastKDS\\FastKDS.csproj|D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\fastkds\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B3A9D243-B653-496C-9709-E222A337444F}|FastKDS\\FastKDS.csproj|solutionrelative:fastkds\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3A9D243-B653-496C-9709-E222A337444F}|FastKDS\\FastKDS.csproj|D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\fastkds\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B3A9D243-B653-496C-9709-E222A337444F}|FastKDS\\FastKDS.csproj|solutionrelative:fastkds\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3A9D243-B653-496C-9709-E222A337444F}|FastKDS\\FastKDS.csproj|D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\fastkds\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B3A9D243-B653-496C-9709-E222A337444F}|FastKDS\\FastKDS.csproj|solutionrelative:fastkds\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE8ED4FA-7313-462A-9A33-5BCDB1542551}|FastKDSPrint\\FastKDSPrint.csproj|D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\fastkdsprint\\service1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE8ED4FA-7313-462A-9A33-5BCDB1542551}|FastKDSPrint\\FastKDSPrint.csproj|solutionrelative:fastkdsprint\\service1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE8ED4FA-7313-462A-9A33-5BCDB1542551}|FastKDSPrint\\FastKDSPrint.csproj|D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\fastkdsprint\\service1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{EE8ED4FA-7313-462A-9A33-5BCDB1542551}|FastKDSPrint\\FastKDSPrint.csproj|solutionrelative:fastkdsprint\\service1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\FastKDS\\Startup.cs",
+              "RelativeDocumentMoniker": "FastKDS\\Startup.cs",
+              "ToolTip": "D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\FastKDS\\Startup.cs",
+              "RelativeToolTip": "FastKDS\\Startup.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-20T08:24:26.73Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\FastKDS\\DAL\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "FastKDS\\DAL\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\FastKDS\\DAL\\ApplicationDbContext.cs",
+              "RelativeToolTip": "FastKDS\\DAL\\ApplicationDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-20T08:23:39.854Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\FastKDS\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "FastKDS\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\FastKDS\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "FastKDS\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAMIAAAAAAAAAAAAkwNAAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002242|",
+              "WhenOpened": "2024-03-20T02:32:28.901Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Service1.cs",
+              "DocumentMoniker": "D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\FastKDSPrint\\Service1.cs",
+              "RelativeDocumentMoniker": "FastKDSPrint\\Service1.cs",
+              "ToolTip": "D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\FastKDSPrint\\Service1.cs",
+              "RelativeToolTip": "FastKDSPrint\\Service1.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAACAAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T02:32:29.108Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Service1.cs",
+              "DocumentMoniker": "D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\FastKDSPrint\\Service1.cs",
+              "RelativeDocumentMoniker": "FastKDSPrint\\Service1.cs",
+              "ToolTip": "D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\FastKDSPrint\\Service1.cs",
+              "RelativeToolTip": "FastKDSPrint\\Service1.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T02:32:29.108Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "bs-stepper.css",
+              "DocumentMoniker": "D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\FastKDS\\plugins\\bs-stepper\\css\\bs-stepper.css",
+              "RelativeDocumentMoniker": "FastKDS\\plugins\\bs-stepper\\css\\bs-stepper.css",
+              "ToolTip": "D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\FastKDS\\plugins\\bs-stepper\\css\\bs-stepper.css",
+              "RelativeToolTip": "FastKDS\\plugins\\bs-stepper\\css\\bs-stepper.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-03-20T02:32:29.108Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\FastKDS\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "FastKDS\\Controllers\\OrderController.cs",
+              "ToolTip": "D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\FastKDS\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "FastKDS\\Controllers\\OrderController.cs",
+              "ViewState": "AQIAALwBAAAAAAAAAAAYwCYCAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T02:32:29.108Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\FastKDS\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "FastKDS\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\FastKDS\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "FastKDS\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAAAgwCcAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T02:32:29.108Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Orders.cs",
+              "DocumentMoniker": "D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\FastKDS\\Models\\Orders.cs",
+              "RelativeDocumentMoniker": "FastKDS\\Models\\Orders.cs",
+              "ToolTip": "D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\FastKDS\\Models\\Orders.cs",
+              "RelativeToolTip": "FastKDS\\Models\\Orders.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAgwBAAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T02:32:29.108Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ChatHub.cs",
+              "DocumentMoniker": "D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\FastKDS\\ChatHub.cs",
+              "RelativeDocumentMoniker": "FastKDS\\ChatHub.cs",
+              "ToolTip": "D:\\\u5C08\u6848\\112\u5409\u5B89\u8FB2KDS\u9EDE\u9910\u7CFB\u7D71\\\u5C08\u6848\\FastKDS\\fastkds\\FastKDS\\ChatHub.cs",
+              "RelativeToolTip": "FastKDS\\ChatHub.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T02:32:29.108Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
